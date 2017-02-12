@@ -55,7 +55,7 @@
     "johnpbloch/wordpress": "4.7.1",
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
-    "timber/timber": "^1.2.1",
+    "timber/timber": "^1.2",
     "advanced-custom-fields/advanced-custom-fields-pro": "5.5.3"
   },
   "require-dev": {
