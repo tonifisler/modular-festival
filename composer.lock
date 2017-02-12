@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c7a857537a77a7e921a11c556bf49904",
-    "content-hash": "03f6e0aeb7688dab6a748e984ec8fc52",
+    "hash": "4bf88cc4f131412bfe1e3e8f390752bc",
+    "content-hash": "22c2e4dbfffd22207c93874daf5ef67d",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -701,7 +701,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/intuitive-custom-post-order.3.0.7.zip",
-                "reference": null,
+                "reference": "tags/3.0.7",
                 "shasum": null
             },
             "require": {
@@ -729,6 +729,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/kint-debugger/"
+        },
+        {
+            "name": "wpackagist-plugin/regenerate-thumbnails",
+            "version": "2.2.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/regenerate-thumbnails/",
+                "reference": "tags/2.2.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.2.2.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
         }
     ],
     "packages-dev": [

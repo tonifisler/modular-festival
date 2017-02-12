@@ -1,1 +1,15 @@
-Copyright {{"now"|date('Y')}}
+<p class="text-center text-muted py-5">
+  <small>Hope to see you there!</small>
+</p>
+
+<div class="row">
+{% for partner in options.partners %}
+  <div class="col-sm text-center">
+    <a href="{{ partner.url }}" title="{{ partner.name }}"><img src="{{ partner.image.sizes.partner_logo }}" alt="{{ partner.name }}" title="{{ partner.name }}"></a>
+  </div>
+{% endfor %}
+</div>
+
+<p class="text-center text-muted py-5">
+  <small>Copyright Modular Festival {{"now"|date('Y')}}</small>
+</p>

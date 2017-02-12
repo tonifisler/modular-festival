@@ -7,7 +7,7 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig">
-  <header class="header bg-white" >
+  <header class="header bg-white fixed-top" >
     {% block header %}
       <div class="container">
         <nav class="navbar navbar-toggleable-md navbar-light" role="navigation">
@@ -47,7 +47,7 @@
   {% block after_content %}{% endblock %}
 
   {% block footer %}
-    <footer id="footer">
+    <footer class="footer py-5" id="footer">
       <div class="container">
         <div class="col-md-12">
           {% include 'footer.twig' %}

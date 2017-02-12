@@ -14,6 +14,10 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
 Timber::$dirname = array('templates', 'views');
 
 class StarterSite extends TimberSite {
@@ -36,6 +40,7 @@ class StarterSite extends TimberSite {
 
     function custom_picture_formats() {
         add_image_size('artist_square', 500, 500, 1);
+        add_image_size('partner_logo', 500, 110);
     }
 
     // Got this from WPML
@@ -140,6 +145,7 @@ class StarterSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
+        $context['options'] = get_fields('options');
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
 		return $context;
