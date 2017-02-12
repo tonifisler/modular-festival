@@ -19,7 +19,7 @@
       "node_modules/bootstrap/js/dist/util.js"
     ],
     "fonts": [
-      "web/app/themes/antistapress/assets/fonts/*"
+      "web/app/themes/modular/assets/fonts/*"
     ],
     "polyfills": [
       "node_modules/html5shiv/dist/html5shiv.js",
@@ -27,15 +27,15 @@
     ]
   },
   "images": [
-    "web/app/themes/antistapress/assets/img/**/*"
+    "web/app/themes/modular/assets/img/**/*"
   ],
   "svg": [
-    "web/app/themes/antistapress/assets/svg/**/*"
+    "web/app/themes/modular/assets/svg/**/*"
   ],
   "tasks":  "./tasks/",
-  "assets": "web/app/themes/antistapress/assets/",
+  "assets": "web/app/themes/modular/assets/",
   "iconsFontName": "icons",
-  "build": "web/app/themes/antistapress/build/",
+  "build": "web/app/themes/modular/build/",
   "browsers": ["last 2 versions", "safari 5", "ie 8", "ie 9", "ff 27", "opera 12.1"],
   "singles": [],
   "metalsmith": {
@@ -75,7 +75,7 @@
       "layouts": {
         "engine": "swig",
         "default": "default.html.swig",
-        "directory": "web/app/themes/antistapress/assets/templates",
+        "directory": "web/app/themes/modular/assets/templates",
         "rename": true
       },
       "metalsmithinplace": {
