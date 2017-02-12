@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.price-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.price-item {
+  display: flex;
+  margin-bottom: $spacer * 2;
+
+  .display-1 {
+    line-height: 0.75;
+  }
+}

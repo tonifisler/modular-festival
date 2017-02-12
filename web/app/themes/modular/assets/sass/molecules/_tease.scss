@@ -2,7 +2,13 @@
 
 .tease-artist {
   &.even {
-    div:first-child {
+    .row div:first-child {
+      order: 1;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    .row div:first-child {
       order: 1;
     }
   }

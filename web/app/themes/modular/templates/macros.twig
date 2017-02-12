@@ -1,0 +1,9 @@
+{% macro price(price, price_text, tagline, currency, last) %}
+<div class="price-item">
+  <span class="currency" aria-hidden="true">{{ currency|default('CHF') }}</span>
+  <div>
+    <div class="display-1{{ last|default(false) ? ' text-primary' }}" aria-label="{{ price_text }}">{{ price }}</div>
+    <div class="price-tag mt-2"><small>{{ tagline|raw }}</small></div>
+  </div>
+</div>
+{% endmacro %}

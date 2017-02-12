@@ -1,4 +1,5 @@
 {% extends "base.twig" %}
+{% import "macros.twig" as macros %}
 
 {% block jumbotron %}
 <div class="jumbotron" id="about">
@@ -16,5 +17,20 @@
   	{% for post in posts %}
       {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] with { 'loop': loop } %}
   	{% endfor %}
+  </section>
+{% endblock %}
+
+{% block after_content %}
+  <section id="tickets" class="py-5">
+    <div class="container">
+      <h2 class="text-primary">Our well priced tickets</h2>
+
+      <div class="price-list py-5">
+        {{ macros.price('010', 'Ten Swiss Francs', 'Daytime only') }}
+        {{ macros.price('020', 'Twenty Swiss Francs', 'Concerts only') }}
+        {{ macros.price('030', 'Thirty Swiss Francs', 'Full day ticket<br>(Daytime and concert)') }}
+        {{ macros.price('035', 'Thirty-five Swiss Francs', 'Week-end pass<br>(= Best deal)', 'CHF', true) }}
+      </div>
+    </div>
   </section>
 {% endblock %}
