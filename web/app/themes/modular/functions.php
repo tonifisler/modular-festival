@@ -28,8 +28,42 @@ class StarterSite extends TimberSite {
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
         add_action( 'admin_menu', array( $this, 'remove_from_menu' ) );
+        add_filter('acf/settings/save_json', array($this, 'settings_save_json'));
+		add_filter('acf/settings/load_json', array($this, 'settings_load_json'));
 		parent::__construct();
 	}
+
+    // Got this from WPML
+    function settings_save_json( $path ) {
+		// bail early if dir does not exist
+		if( !is_writable($path) ) {
+			return $path;
+		}
+		// remove trailing slash
+		$path = untrailingslashit( $path );
+		// ammend
+		$path = $path . '/' . $this->lang;
+		// make dir if does not exist
+		if( !file_exists($path) ) {
+			mkdir($path, 0777, true);
+		}
+		// return
+		return $path;
+	}
+
+    function settings_load_json( $paths ) {
+        if( !empty($paths) ) {
+            foreach( $paths as $i => $path ) {
+                // remove trailing slash
+                $path = untrailingslashit( $path );
+                // ammend
+                $paths[ $i ] = $path . '/' . $this->lang;
+            }
+        }
+        // return
+        return $paths;
+
+    }
 
     function remove_from_menu() {
         $user = wp_get_current_user();
