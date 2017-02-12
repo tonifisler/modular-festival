@@ -7,20 +7,25 @@
 {% endblock %}
 
 <body class="{{body_class}}" data-template="base.twig">
-  <header class="header" >
+  <header class="header bg-white" >
     {% block header %}
       <div class="container">
-        <div class="col-md-12">
-          <h1 class="hdr-logo" role="banner">
-            <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+        <nav class="navbar navbar-toggleable-md navbar-light" role="navigation">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand" role="banner">
+            <a href="{{site.url}}" rel="home">{{site.name}}</a>
           </h1>
-          <nav id="nav-main" class="nav-main" role="navigation">
+          <div class="collapse navbar-collapse" id="navbarMain">
             {% include "menu.twig" with {'menu': menu.get_items} %}
-          </nav><!-- #nav -->
-        </div>
+          </div>
+        </nav>
       </div>
     {% endblock %}
   </header>
+
+  {% block jumbotron %}{% endblock %}
 
   <section id="content" role="main" class="content-wrapper">
     {% if title %}<h1>{{title}}</h1>{% endif %}

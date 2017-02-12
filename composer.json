@@ -56,7 +56,8 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "timber/timber": "^1.2",
-    "advanced-custom-fields/advanced-custom-fields-pro": "5.5.3"
+    "advanced-custom-fields/advanced-custom-fields-pro": "5.5.3",
+    "wpackagist-plugin/kint-debugger": "^1.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"

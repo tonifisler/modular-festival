@@ -1,0 +1,23 @@
+{% extends "base.twig" %}
+
+{% block jumbotron %}
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="mb-5 text-primary">{{post.intro}}</h2>
+    <div class="intro-content content">
+      {{post.content}}
+    </div>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+	{% for post in posts %}
+		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+	{% endfor %}
+{% endblock %}

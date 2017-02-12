@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.content {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      position: relative;
+      padding-left: $spacer * 2;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: $spacer * 0.5;
+        font-weight: $font-weight-bold;
+        color: $brand-primary;
+      }
+    }
+  }
+}
+
+.intro-content {
+  ul {
+    columns: 2;
+  }
+}
