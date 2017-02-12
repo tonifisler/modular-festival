@@ -1,0 +1,45 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+  <div class="row py-5">
+    <div class="col-8">
+      <span class="text-primary">{{ loop.index|format_int }}.</span>
+      <h3 class="h2 text-primary">{{post.title}}{% if post.country %} <small>({{ post.country }})</small>{% endif %}</h3>
+      {% if post.start_date %}
+      <p class="mb-5"><strong>
+        <time datetime="{{ post.start_date|date('c') }}">
+          {{ post.start_date|date('m/d/Y') }}
+          {{ post.display_hours ? post.start_date|date('H:i') }}
+        </time>
+        {% if post.end_date %}
+          -
+          <time datetime="{{ post.end_date|date('c') }}">
+            {{ post.start_date|date('m/d/Y') != post.end_date|date('m/d/Y') ? post.end_date|date('m/d/Y') }}
+            {{ post.display_hours ? post.end_date|date('H:i') }}
+          </time>
+        {% endif %}
+      </strong></p>
+      {% endif %}
+
+      {{ post.content }}
+
+      {% set links = post.get_field('links') %}
+      {% if links.0.label %}
+      <ul class="list-arrow">
+        {% for link in links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+    </div>
+    <div class="col-4">
+      {% set image = post.get_field('image') %}
+      <div class="img-losange">
+        <img class="img-fluid" src="{{ image ? image.sizes.artist_square : site.theme.link ~ '/build/img/black.png' }}" alt="{{ image.alt }}">
+      </div>
+    </div>
+  </div>
+{% endblock %}

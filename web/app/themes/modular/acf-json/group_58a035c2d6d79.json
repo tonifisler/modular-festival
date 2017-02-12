@@ -1,6 +1,6 @@
 {
     "key": "group_58a035c2d6d79",
-    "title": "Events",
+    "title": "Artists",
     "fields": [
         {
             "default_value": "",
@@ -30,7 +30,7 @@
             "name": "start_date",
             "type": "date_time_picker",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -56,6 +56,25 @@
             }
         },
         {
+            "default_value": 0,
+            "message": "Display hours next to the date.",
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "key": "field_58a0ae3197fb7",
+            "label": "Display Hours",
+            "name": "display_hours",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "sub_fields": [
                 {
                     "default_value": "",
@@ -68,7 +87,7 @@
                     "name": "label",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -84,7 +103,7 @@
                     "name": "url",
                     "type": "url",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -141,7 +160,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "event"
+                "value": "artist"
             }
         ]
     ],
@@ -153,5 +172,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1486919531
+    "modified": 1486925438
 }

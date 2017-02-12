@@ -8,10 +8,12 @@
 @import 'typography';
 
 // atoms:
+@import "atoms/image";
 
 // molecules:
 @import "molecules/header";
 @import "molecules/jumbotron";
+@import "molecules/tease";
 
 // organisms:
 

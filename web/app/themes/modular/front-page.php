@@ -26,10 +26,7 @@ $post = new TimberPost();
 $context['post'] = $post;
 
 $args = array(
-  'post_type' => 'event',
-  'orderby'   => 'meta_value',
-  'meta_key'  => 'start_date',
-  'order'     => 'ASC',
+  'post_type' => 'artist',
 );
 $context['posts'] = Timber::get_posts($args);
 

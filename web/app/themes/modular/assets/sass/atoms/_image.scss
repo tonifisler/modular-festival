@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.img-losange {
+  position: relative;
+
+  img {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -25%;
+    width: 70%;
+    height: 20%;
+    border-left: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-lighter;
+    transform: rotate(-45deg);
+  }
+
+  .even & {
+    &::before {
+      top: 18%;
+      right: auto;
+      left: -15%;
+      width: 30%;
+      border-left: none;
+    }
+  }
+}

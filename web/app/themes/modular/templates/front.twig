@@ -12,7 +12,9 @@
 {% endblock %}
 
 {% block content %}
-	{% for post in posts %}
-    {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] with { 'loop': loop } %}
-	{% endfor %}
+  <section id="artists">
+  	{% for post in posts %}
+      {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] with { 'loop': loop } %}
+  	{% endfor %}
+  </section>
 {% endblock %}

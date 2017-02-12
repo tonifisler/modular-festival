@@ -27,9 +27,9 @@
 
   {% block jumbotron %}{% endblock %}
 
-  <section id="content" role="main" class="content-wrapper">
+  <section id="content" role="main" class="content-wrapper bg-white py-5">
     {% if title %}<h1>{{title}}</h1>{% endif %}
-      <div class="container {{sidebar_class}}">
+      <div class="container">
         <div class="col-md-12">
           {% block content %}
             Sorry, no content

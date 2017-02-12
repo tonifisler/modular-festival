@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.tease-artist {
+  &.even {
+    div:first-child {
+      order: 1;
+    }
+  }
+}

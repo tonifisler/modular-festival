@@ -98,41 +98,41 @@ class StarterSite extends TimberSite {
     }
 
 	function register_post_types() {
-        $event_labels = array(
-            'name'               => _x( 'Events', 'post type general name', 'modular' ),
-            'singular_name'      => _x( 'Event', 'post type singular name', 'modular' ),
-            'menu_name'          => _x( 'Events', 'admin menu', 'modular' ),
-            'name_admin_bar'     => _x( 'Event', 'add new on admin bar', 'modular' ),
-            'add_new'            => _x( 'Add New', 'event', 'modular' ),
-            'add_new_item'       => __( 'Add New Event', 'modular' ),
-            'new_item'           => __( 'New Event', 'modular' ),
-            'edit_item'          => __( 'Edit Event', 'modular' ),
-            'view_item'          => __( 'View Event', 'modular' ),
-            'all_items'          => __( 'All Events', 'modular' ),
-            'search_items'       => __( 'Search Events', 'modular' ),
-            'parent_item_colon'  => __( 'Parent Events:', 'modular' ),
-            'not_found'          => __( 'No events found.', 'modular' ),
-            'not_found_in_trash' => __( 'No events found in Trash.', 'modular' )
+        $artist_labels = array(
+            'name'               => _x( 'Artists', 'post type general name', 'modular' ),
+            'singular_name'      => _x( 'Artist', 'post type singular name', 'modular' ),
+            'menu_name'          => _x( 'Artists', 'admin menu', 'modular' ),
+            'name_admin_bar'     => _x( 'Artist', 'add new on admin bar', 'modular' ),
+            'add_new'            => _x( 'Add New', 'artist', 'modular' ),
+            'add_new_item'       => __( 'Add New Artist', 'modular' ),
+            'new_item'           => __( 'New Artist', 'modular' ),
+            'edit_item'          => __( 'Edit Artist', 'modular' ),
+            'view_item'          => __( 'View Artist', 'modular' ),
+            'all_items'          => __( 'All Artists', 'modular' ),
+            'search_items'       => __( 'Search Artists', 'modular' ),
+            'parent_item_colon'  => __( 'Parent Artists:', 'modular' ),
+            'not_found'          => __( 'No artists found.', 'modular' ),
+            'not_found_in_trash' => __( 'No artists found in Trash.', 'modular' )
         );
 
-        $event_args = array(
-            'labels'             => $event_labels,
+        $artist_args = array(
+            'labels'             => $artist_labels,
             'description'        => __( 'Description.', 'modular' ),
             'public'             => true,
             'publicly_queryable' => false,
             'show_ui'            => true,
             'show_in_menu'       => true,
             'query_var'          => true,
-            'rewrite'            => array( 'slug' => 'event' ),
+            'rewrite'            => array( 'slug' => 'artist' ),
             'capability_type'    => 'post',
             'has_archive'        => true,
             'hierarchical'       => false,
             'menu_position'      => 20,
-            'menu_icon'           => 'dashicons-calendar',
+            'menu_icon'           => 'dashicons-microphone',
             'supports'           => array( 'title', 'editor' )
         );
 
-        register_post_type( 'event', $event_args );
+        register_post_type( 'artist', $artist_args );
 	}
 
 	function register_taxonomies() {
