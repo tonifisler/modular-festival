@@ -27,8 +27,13 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
+        add_action( 'admin_menu', array( $this, 'remove_default_post_type' ) );
 		parent::__construct();
 	}
+
+    function remove_default_post_type() {
+        remove_menu_page('edit.php');
+    }
 
     function register_assets() {
         wp_register_script('polyfills', get_template_directory_uri() . '/build/js/polyfills.min.js', [], '1.1', true);
