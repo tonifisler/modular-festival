@@ -1,0 +1,27 @@
+{% extends "tease.twig" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <span class="text-primary">{{ loop.index|format_int }}.</span>
+      <h3 class="h2 text-primary"><a href="{{post.link}}">{{post.title}}</a></h3>
+      {{ post.content }}
+      {% set links = post.get_field('links') %}
+      {% if links %}
+      <ul class="list-arrow">
+        {% for link in links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-md-4">
+      {% set image = post.get_field('image') %}
+      {% if image %}
+        <img class="img-fluid" src="{{ image.sizes.artist_square }}" alt="{{ image.alt }}">
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

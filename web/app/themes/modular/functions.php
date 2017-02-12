@@ -28,10 +28,15 @@ class StarterSite extends TimberSite {
         add_action( 'init', array( $this, 'register_taxonomies' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'register_assets' ) );
         add_action( 'admin_menu', array( $this, 'remove_from_menu' ) );
+        add_action( 'after_setup_theme', array( $this, 'custom_picture_formats' ) );
         add_filter('acf/settings/save_json', array($this, 'settings_save_json'));
 		add_filter('acf/settings/load_json', array($this, 'settings_load_json'));
 		parent::__construct();
 	}
+
+    function custom_picture_formats() {
+        add_image_size('artist_square', 500, 500, 1);
+    }
 
     // Got this from WPML
     function settings_save_json( $path ) {
@@ -144,10 +149,16 @@ class StarterSite extends TimberSite {
       d($input);
     }
 
+	function format_int($number) {
+		$int = strlen($number) < 2 ? "0$number" : $number;
+		return $int;
+	}
+
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
         $twig->addFilter( 'kint', new Twig_SimpleFilter('kint', array($this, 'kint')));
+        $twig->addFilter( 'format_int', new Twig_SimpleFilter('format_int', array($this, 'format_int')));
 		// $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
 	}

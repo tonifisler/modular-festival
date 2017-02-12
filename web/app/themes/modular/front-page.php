@@ -24,4 +24,14 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
+
+$args = array(
+  'post_type' => 'event',
+  'orderby'   => 'meta_value',
+  'meta_key'  => 'start_date',
+  'order'     => 'ASC',
+);
+$context['posts'] = Timber::get_posts($args);
+
+
 Timber::render( array( 'front.twig', 'index.twig' ), $context );
