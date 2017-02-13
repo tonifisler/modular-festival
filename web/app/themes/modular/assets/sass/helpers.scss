@@ -1,3 +1,7 @@
 @charset "UTF-8";
 
 @include bg-variant('.bg-white', $white);
+
+body {
+  position: relative;
+}

@@ -6,11 +6,11 @@
 </head>
 {% endblock %}
 
-<body class="{{body_class}}" data-template="base.twig">
+<body class="{{body_class}}" data-template="base.twig" data-spy="scroll" data-target="#main-navbar">
   <header class="header bg-white fixed-top" >
     {% block header %}
       <div class="container">
-        <nav class="navbar navbar-toggleable-md navbar-light" role="navigation">
+        <nav class="navbar navbar-toggleable-md navbar-light" role="navigation" id="main-navbar">
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
