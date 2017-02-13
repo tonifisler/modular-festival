@@ -10,6 +10,9 @@ set :repo_url, 'git@github.com:tonifisler/modular-festival.git'
 set :branch, :master
 
 set :deploy_to, -> { "/home/tonifisler/webapps/#{fetch(:application)}" }
+set :tmp_dir, '/home/tonifisler/tmp'
+set :default_env, { path: "/usr/local/bin:$PATH" }
+SSHKit.config.command_map[:composer] = "php70 /home/tonifisler/composer.phar"
 
 # Use :debug for more verbose output when troubleshooting
 set :log_level, :info
@@ -59,3 +62,13 @@ end
 # Note that you need to have WP-CLI installed on your server
 # Uncomment the following line to run it on deploys if needed
 # after 'deploy:publishing', 'deploy:update_option_paths'
+
+
+namespace :deploy do
+  desc 'Copy build to new release'
+  task :copy_build do
+    run_locally do
+      rsync --recursive --times --rsh=ssh --compress --human-readable --progress --delete web/app/themes/modular/build tonifisler@web420.webfaction.com:/home/tonifisler/webapps/modular/current/web/app/themes/modular/
+    end
+  end
+end
