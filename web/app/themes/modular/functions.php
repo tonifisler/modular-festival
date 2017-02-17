@@ -75,14 +75,17 @@ class StarterSite extends TimberSite {
 
     }
 
-    function remove_from_menu() {
+		function remove_from_menu() {
         $user = wp_get_current_user();
-        if ( !in_array( 'administrator', (array) $user->roles ) ) {
-            remove_menu_page('edit.php');
-            remove_menu_page( 'edit-comments.php' );
-            remove_menu_page( 'plugins.php' );
-            remove_menu_page( 'tools.php' );
-        }
+            if ($user->ID !== 1) {
+                remove_menu_page('edit.php');
+                remove_menu_page( 'edit-comments.php' );
+                remove_menu_page( 'plugins.php' );
+                remove_menu_page( 'tools.php' );
+                remove_menu_page( 'options-general.php' );
+                remove_menu_page( 'edit.php?post_type=acf-field-group' );
+                remove_submenu_page( 'themes.php', 'nav-menus.php' );
+            }
     }
 
     function register_assets() {
