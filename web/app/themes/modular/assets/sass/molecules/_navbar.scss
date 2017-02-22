@@ -32,3 +32,24 @@
     }
   }
 }
+
+.navbar-brand {
+  a {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .name {
+    margin-top: auto;
+    margin-bottom: -4px;
+  }
+
+  img {
+    margin-right: $spacer;
+    max-width: 100px;
+  }
+}

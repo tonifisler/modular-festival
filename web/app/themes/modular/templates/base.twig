@@ -14,9 +14,23 @@
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <h1 class="navbar-brand" role="banner">
-            <a href="{{site.url}}" rel="home">{{site.name}}</a>
-          </h1>
+          <div class="navbar-brand">
+            <h1 class="h4" role="banner">
+              <a href="{{site.url}}" rel="home">
+                <div class="logo">
+                {% if logo %}
+                  <img src="{{logo}}" alt="{{site.name}}">
+                  {% else %}
+                  <img src="{{theme.uri}}/build/svg/logo.svg">
+                  {% endif %}
+                </div>
+                <div class="name">
+                  {{site.name}}<br>
+                  <small class="text-gray">18-19 March 2017 - MuDA</small>
+                </div>
+              </a>
+            </h1>
+          </div>
           <div class="collapse navbar-collapse" id="navbarMain">
             {% include "menu.twig" with {'menu': menu.get_items} %}
           </div>
