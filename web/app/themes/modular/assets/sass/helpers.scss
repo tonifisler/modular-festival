@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@include bg-variant('.bg-white', $white);
+@include bg-variant('.bg-white', #fefefe);
 @include text-emphasis-variant('.text-gray', $gray);
 
 body {
