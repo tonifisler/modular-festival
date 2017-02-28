@@ -8,7 +8,7 @@ set :stage, :production
 
 # Extended Server Syntax
 # ======================
-server 'example.com', user: 'deploy', roles: %w{web app db}
+server 'bassmusik.ch', user: 'bassmusi', roles: %w{web app db}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
@@ -19,5 +19,10 @@ server 'example.com', user: 'deploy', roles: %w{web app db}
 #    forward_agent: false,
 #    auth_methods: %w(password)
 #  }
+
+set :application, 'zurichmodular'
+set :deploy_to, -> { "/home/bassmusi/www/#{fetch(:application)}" }
+set :tmp_dir, "/home/bassmusi/tmp"
+SSHKit.config.command_map[:composer] = "php70 /home/bassmusi/composer.phar"
 
 fetch(:default_env).merge!(wp_env: :production)
