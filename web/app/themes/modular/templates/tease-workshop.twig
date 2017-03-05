@@ -13,6 +13,7 @@
         {% if post.duration %}
         — Duration: {{ post.duration|date('H:i') }}
         {% endif %}
+        [{% if post.free %}Free{% elseif post.price %}CHF {{ post.price }}.-{% endif %}]
       </strong></p>
       {% endif %}
 
