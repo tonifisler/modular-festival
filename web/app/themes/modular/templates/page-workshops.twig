@@ -11,12 +11,8 @@
 </div>
 {% endblock %}
 
-{% block js %}
-<script type="text/javascript">
-  var workshop = window.location.search.substring(10); // substring `?workshop=`
-  var select = document.querySelector('select[name=workshop]');
-  if (select) {
-    select.value = workshop;
-  }
-</script>
+{% block content %}
+  {% for post in workshops %}
+    {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] with { 'loop': loop } %}
+  {% endfor %}
 {% endblock %}

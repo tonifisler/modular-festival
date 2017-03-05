@@ -35,7 +35,30 @@ class StarterSite extends TimberSite {
         add_action( 'after_setup_theme', array( $this, 'custom_picture_formats' ) );
         add_filter('acf/settings/save_json', array($this, 'settings_save_json'));
 		add_filter('acf/settings/load_json', array($this, 'settings_load_json'));
+		add_filter( 'wpcf7_form_tag', array($this, 'ses_add_workshops_list_to_contact_form'), 10, 2);
 		parent::__construct();
+	}
+
+	function ses_add_workshops_list_to_contact_form($tag, $unused) {
+
+	    if ( $tag['name'] != 'workshop' )
+	        return $tag;
+
+	    $args = array ( 'post_type' => 'workshop', 'orderby' => 'time', 'order' => 'ASC' );
+	    $workshops = get_posts($args);
+
+	    if ( ! $workshops )
+	        return $tag;
+
+	    foreach ( $workshops as $workshop ) {
+	        $tag['raw_values'][] = $workshop->post_title;
+	        $tag['values'][] = $workshop->ID;
+            $time = get_post_field('time', $workshop->ID);
+	        $tag['labels'][] = "$workshop->post_title – $time";
+	        // $tag['pipes']->pipes[] = array ( 'before' => $workshop->post_title, 'after' => $workshop->post_title);
+	    }
+
+	    return $tag;
 	}
 
     function custom_picture_formats() {
@@ -141,6 +164,42 @@ class StarterSite extends TimberSite {
         );
 
         register_post_type( 'artist', $artist_args );
+
+		$workshops_label = array(
+            'name'               => _x( 'Workshops', 'post type general name', 'modular' ),
+            'singular_name'      => _x( 'Workshop', 'post type singular name', 'modular' ),
+            'menu_name'          => _x( 'Workshops', 'admin menu', 'modular' ),
+            'name_admin_bar'     => _x( 'Workshop', 'add new on admin bar', 'modular' ),
+            'add_new'            => _x( 'Add New', 'workshop', 'modular' ),
+            'add_new_item'       => __( 'Add New Workshop', 'modular' ),
+            'new_item'           => __( 'New Workshop', 'modular' ),
+            'edit_item'          => __( 'Edit Workshop', 'modular' ),
+            'view_item'          => __( 'View Workshop', 'modular' ),
+            'all_items'          => __( 'All Workshops', 'modular' ),
+            'search_items'       => __( 'Search Workshops', 'modular' ),
+            'parent_item_colon'  => __( 'Parent Workshops:', 'modular' ),
+            'not_found'          => __( 'No workshops found.', 'modular' ),
+            'not_found_in_trash' => __( 'No workshops found in Trash.', 'modular' )
+        );
+
+        $workshops_args = array(
+            'labels'             => $workshops_label,
+            'description'        => __( 'Description.', 'modular' ),
+            'public'             => true,
+            'publicly_queryable' => false,
+            'show_ui'            => true,
+            'show_in_menu'       => true,
+            'query_var'          => true,
+            'rewrite'            => array( 'slug' => 'workshop' ),
+            'capability_type'    => 'post',
+            'has_archive'        => true,
+            'hierarchical'       => false,
+            'menu_position'      => 20,
+            'menu_icon'           => 'dashicons-edit',
+            'supports'           => array( 'title', 'editor' )
+        );
+
+        register_post_type( 'workshop', $workshops_args );
 	}
 
 	function register_taxonomies() {
@@ -163,11 +222,16 @@ class StarterSite extends TimberSite {
 		return $int;
 	}
 
+    function the_content_filter($content) {
+        return apply_filters( 'the_content', $content );
+    }
+
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		$twig->addExtension( new Twig_Extension_StringLoader() );
         $twig->addFilter( 'kint', new Twig_SimpleFilter('kint', array($this, 'kint')));
         $twig->addFilter( 'format_int', new Twig_SimpleFilter('format_int', array($this, 'format_int')));
+        $twig->addFilter( 'the_content_filter', new Twig_SimpleFilter('the_content', array($this, 'the_content_filter')));
 		// $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
 	}

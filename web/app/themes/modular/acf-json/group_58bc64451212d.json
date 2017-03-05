@@ -1,54 +1,47 @@
 {
-    "key": "group_58a035c2d6d79",
-    "title": "Artists",
+    "key": "group_58bc64451212d",
+    "title": "Workshops",
     "fields": [
+        {
+            "default_value": 1,
+            "message": "Workshop is free",
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "key": "field_58bc64ab1cc6e",
+            "label": "Free",
+            "name": "free",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
         {
             "default_value": "",
             "maxlength": 4,
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "key": "field_58a0492c51aa7",
-            "label": "Country",
-            "name": "country",
+            "prepend": "CHF",
+            "append": ".-",
+            "key": "field_58bc644b1cc6d",
+            "label": "Price",
+            "name": "price",
             "type": "text",
-            "instructions": "Enter the country code: \"CH\", \"FR\", \"DE\"...",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "display_format": "d\/m\/Y g:i a",
-            "return_format": "d\/m\/Y g:i a",
-            "first_day": 1,
-            "key": "field_58a035c71922e",
-            "label": "Start Date",
-            "name": "start_date",
-            "type": "date_time_picker",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
-        },
-        {
-            "display_format": "d\/m\/Y g:i a",
-            "return_format": "d\/m\/Y g:i a",
-            "first_day": 1,
-            "key": "field_58a0399071929",
-            "label": "End Date",
-            "name": "end_date",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_58bc64ab1cc6e",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -57,16 +50,49 @@
         },
         {
             "default_value": 0,
-            "message": "Display hours next to the date.",
+            "message": "Add a link to contact form for registration",
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": "",
-            "key": "field_58a0ae3197fb7",
-            "label": "Display Hours",
-            "name": "display_hours",
+            "key": "field_58bc775ce8432",
+            "label": "Registration",
+            "name": "registration",
             "type": "true_false",
             "instructions": "",
             "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "display_format": "g:i",
+            "return_format": "g:i",
+            "key": "field_58bc6522548f6",
+            "label": "Duration",
+            "name": "duration",
+            "type": "time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
+            "display_format": "d\/m\/Y g:i a",
+            "return_format": "d\/m\/Y g:i a",
+            "first_day": 1,
+            "key": "field_58bc656a548f7",
+            "label": "Time",
+            "name": "time",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -79,10 +105,10 @@
                 {
                     "default_value": "",
                     "maxlength": "",
-                    "placeholder": "Soundcloud \/ Facebook ...",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "key": "field_58a04894b2f36",
+                    "key": "field_58bc65d9b909b",
                     "label": "Link Label",
                     "name": "label",
                     "type": "text",
@@ -97,8 +123,8 @@
                 },
                 {
                     "default_value": "",
-                    "placeholder": "http:\/\/example.com",
-                    "key": "field_58a0487cb2f35",
+                    "placeholder": "",
+                    "key": "field_58bc65f9b909c",
                     "label": "URL",
                     "name": "url",
                     "type": "url",
@@ -115,9 +141,9 @@
             "min": 1,
             "max": 0,
             "layout": "row",
-            "button_label": "Add link",
-            "collapsed": "field_58a04894b2f36",
-            "key": "field_58a04841a8312",
+            "button_label": "Add Link",
+            "collapsed": "",
+            "key": "field_58bc6589548f8",
             "label": "Links",
             "name": "links",
             "type": "repeater",
@@ -131,17 +157,36 @@
             }
         },
         {
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "default_value": "",
+            "delay": 0,
+            "key": "field_58bc71bc2f7da",
+            "label": "Description",
+            "name": "description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
+        },
+        {
             "return_format": "array",
             "preview_size": "thumbnail",
             "library": "all",
-            "min_width": 500,
-            "min_height": 500,
+            "min_width": "",
+            "min_height": "",
             "min_size": "",
             "max_width": "",
             "max_height": "",
             "max_size": "",
             "mime_types": "",
-            "key": "field_58a09745c85b9",
+            "key": "field_58bc730051174",
             "label": "Image",
             "name": "image",
             "type": "image",
@@ -160,17 +205,32 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "artist"
+                "value": "workshop"
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": -2147483648,
     "position": "acf_after_title",
     "style": "seamless",
-    "label_placement": "left",
+    "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "custom_fields",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1488744980
+    "modified": 1488746363
 }

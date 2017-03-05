@@ -81,6 +81,28 @@
                 "class": "",
                 "id": ""
             }
+        },
+        {
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1,
+            "key": "field_58bc81087ea3a",
+            "label": "Workshop Registration Page",
+            "name": "workshop_registration_page",
+            "type": "post_object",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            }
         }
     ],
     "location": [
@@ -100,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1487746132
+    "modified": 1488749364
 }
