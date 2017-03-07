@@ -9,7 +9,9 @@
     const baseHeight = 133;
 
     // scrollspy for menu
-    $body.scrollspy({ target: '#main-navbar' });
+    if ($body.hasClass('home')) {
+      $body.scrollspy({ target: '#main-navbar' });
+    }
 
     // shrink menu size on scroll
     let isSmallMenu = false;

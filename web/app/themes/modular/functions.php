@@ -192,7 +192,7 @@ class StarterSite extends TimberSite {
             'query_var'          => true,
             'rewrite'            => array( 'slug' => 'workshop' ),
             'capability_type'    => 'post',
-            'has_archive'        => true,
+            'has_archive'        => false,
             'hierarchical'       => false,
             'menu_position'      => 20,
             'menu_icon'           => 'dashicons-edit',
