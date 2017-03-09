@@ -5,10 +5,11 @@
     <div class="col-sm-8">
       <span class="text-primary">{{ loop.index|format_int }}.</span>
       <h3 class="h2 text-primary">{{post.title}}</h3>
-      {% if post.time %}
+      {% set workshhopTime = post.get_field('time') %}
+      {% if workshhopTime %}
       <p class="mb-5"><strong>
-        <time datetime="{{ post.time|date('c') }}">
-          {{ post.time|date('m/d/Y H:i') }}
+        <time datetime="{{ workshhopTime|date('c') }}">
+          {{workshhopTime}}
         </time>
         {% if post.duration %}
         — Duration: {{ post.duration|date('H:i') }}

@@ -1,5 +1,13 @@
 {% extends "base.twig" %}
 
+{% block navigation %}
+<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+	<li class="nav-item">
+		<a class="btn btn-outline-primary btn-sm" href="{{site.url}}">← back to home</a>
+	</li>
+</ul>
+{% endblock %}
+
 {% block jumbotron %}
 <div class="jumbotron" id="about">
   <div class="container">
@@ -20,3 +28,5 @@
   }
 </script>
 {% endblock %}
+
+{% block content %}{% endblock %}

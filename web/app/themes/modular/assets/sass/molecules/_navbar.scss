@@ -23,8 +23,7 @@
     }
   }
 
-  .current-menu-item .nav-link,
-  .nav-link.active {
+  .current-menu-item .nav-link {
     font-weight: $font-weight-bold;
 
     &::after {
