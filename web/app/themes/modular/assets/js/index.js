@@ -13,6 +13,12 @@
       $body.scrollspy({ target: '#main-navbar' });
     }
 
+    $(window).on('load', function() {
+      if (window.matchMedia( "(max-width: 767px)").matches ) {
+        toggleMenuSize();
+      }
+    })
+
     // shrink menu size on scroll
     let isSmallMenu = false;
     $(document).on('scroll', function() {

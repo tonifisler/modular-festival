@@ -64,4 +64,9 @@
     img { max-width: 30px; }
     h1 { font-size: $font-size-h6; }
   }
+
+  @include media-breakpoint-down(xs) {
+    img { max-width: 30px; }
+    h1 { font-size: $font-size-h6; }
+  }
 }
