@@ -66,7 +66,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-util": "^3.0.7",
     "lodash": "^4.1.6",
-    "marked": "^0.3.6",
+    "marked": "^4.0.10",
     "metalsmith": "^2.2.0",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-define": "^2.0.1",
